@@ -1,0 +1,944 @@
+.about {
+  padding: 6rem 1.5rem;
+  background-color: var(--color-bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-accent-light),
+    transparent
+  );
+}
+
+/* Decorative Background */
+.bgDecoration {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bgShape1 {
+  position: absolute;
+  top: 10%;
+  right: -5%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    var(--color-accent-light) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  opacity: 0.4;
+  animation: floatShape 20s ease-in-out infinite;
+}
+
+.bgShape2 {
+  position: absolute;
+  bottom: 20%;
+  left: -10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(
+    circle,
+    var(--color-accent-primary) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: floatShape 25s ease-in-out infinite reverse;
+}
+
+.bgShape3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    var(--color-bg-primary) 0%,
+    transparent 60%
+  );
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+@keyframes floatShape {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-30px) scale(1.05);
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Mission Section */
+.missionSection {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.missionSection.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (min-width: 1024px) {
+  .missionSection {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+}
+
+.missionContent {
+  position: relative;
+}
+
+.sectionTitle {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.sectionTitle::after {
+  content: "";
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--color-accent-primary),
+    var(--color-accent-light)
+  );
+  border-radius: 2px;
+}
+
+.sectionSubtitle {
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.missionBox {
+  background-color: var(--color-white);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: var(--shadow-md);
+}
+
+.missionTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.25rem;
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+}
+
+.missionIcon {
+  font-size: 1.5rem;
+  width: 28px;
+  height: 28px;
+  color: var(--color-accent-primary);
+}
+
+.missionIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.missionText {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+}
+
+/* Mission Image */
+.missionImage {
+  position: relative;
+}
+
+.clinicImage {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: var(--shadow-md);
+}
+
+.imagePlaceholder {
+  height: 350px;
+  background: linear-gradient(
+    135deg,
+    var(--color-bg-secondary) 0%,
+    var(--color-accent-light) 100%
+  );
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: var(--color-text-secondary);
+  box-shadow: var(--shadow-md);
+}
+
+.imagePlaceholder svg {
+  width: 60px;
+  height: 60px;
+  opacity: 0.5;
+}
+
+.imagePlaceholder span {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.statsCard {
+  position: absolute;
+  bottom: -1.5rem;
+  right: -1rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+  background-color: var(--color-white);
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+}
+
+@media (min-width: 1024px) {
+  .statsCard {
+    right: -2rem;
+  }
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statNumber {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+.statLabel {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+.statDivider {
+  width: 1px;
+  height: 40px;
+  background-color: var(--color-accent-light);
+}
+
+/* Values Section */
+.valuesSection {
+  text-align: center;
+  margin-bottom: 5rem;
+  padding-top: 2rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease 0.2s;
+}
+
+.valuesSection.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.valuesTitle {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--color-text-primary);
+  margin-bottom: 2rem;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .valuesGrid {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 800px;
+  }
+}
+
+.valueCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem 1rem;
+  background-color: var(--color-white);
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.valuesSection.visible .valueCard {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.valueCard:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.valueIcon {
+  font-size: 2rem;
+  width: 40px;
+  height: 40px;
+  color: var(--color-accent-primary);
+}
+
+.valueIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.valueLabel {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+/* Team Section */
+.teamSection {
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease 0.3s;
+}
+
+.teamSection.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.teamHeader {
+  margin-bottom: 3rem;
+}
+
+.teamTitle {
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+}
+
+.teamSubtitle {
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Doctor Carousel */
+.doctorCarousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  position: relative;
+}
+
+.carouselBtn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  border: 2px solid var(--color-accent-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.carouselBtn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: var(--color-accent-primary);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.4s ease;
+  z-index: 0;
+}
+
+.carouselBtn:hover::before {
+  width: 100%;
+  height: 100%;
+}
+
+.carouselBtn:hover {
+  border-color: var(--color-accent-primary);
+  transform: scale(1.1);
+}
+
+.carouselBtn:active {
+  transform: scale(0.95);
+}
+
+.carouselBtn:hover svg {
+  stroke: var(--color-white);
+}
+
+.carouselBtn svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--color-text-secondary);
+  position: relative;
+  z-index: 1;
+  transition: stroke 0.3s ease;
+}
+
+.doctorDisplay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  background-color: var(--color-white);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  max-width: 900px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.doctorDisplay:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+@media (min-width: 768px) {
+  .doctorDisplay {
+    flex-direction: row;
+    gap: 3rem;
+    padding: 3rem;
+  }
+}
+
+/* Doctor Image Section */
+.doctorImageSection {
+  flex-shrink: 0;
+}
+
+.doctorImageFrame {
+  position: relative;
+  width: 250px;
+  height: 320px;
+}
+
+@media (min-width: 768px) {
+  .doctorImageFrame {
+    width: 280px;
+    height: 360px;
+  }
+}
+
+.imageDecorSquare {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 85%;
+  height: 85%;
+  background-color: var(--color-accent-light);
+  border-radius: 12px;
+  z-index: 0;
+  transition: all 0.4s ease;
+}
+
+.doctorDisplay:hover .imageDecorSquare {
+  transform: rotate(-3deg) scale(1.02);
+}
+
+.doctorMainPhoto {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 95%;
+  height: 95%;
+  object-fit: contain;
+  object-position: center bottom;
+  z-index: 1;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.12));
+  transition: all 0.4s ease;
+  animation: doctorSlideIn 0.5s ease forwards;
+}
+
+@keyframes doctorSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.doctorDisplay:hover .doctorMainPhoto {
+  transform: scale(1.03);
+  filter: drop-shadow(0 12px 32px rgba(0, 0, 0, 0.18));
+}
+
+.imageDecorLine {
+  position: absolute;
+  bottom: -10px;
+  left: 20px;
+  right: 20px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent-primary), transparent);
+  border-radius: 2px;
+}
+
+/* Doctor Content Section */
+.doctorContentSection {
+  flex: 1;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .doctorContentSection {
+    text-align: left;
+  }
+}
+
+.quoteIcon {
+  width: 40px;
+  height: 40px;
+  color: var(--color-accent-primary);
+  margin-bottom: 1rem;
+  animation: fadeInDown 0.5s ease 0.2s forwards;
+  opacity: 0;
+}
+
+@media (min-width: 768px) {
+  .quoteIcon {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.quoteIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.doctorQuote {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 0.5s ease 0.3s forwards;
+  opacity: 0;
+}
+
+@media (min-width: 768px) {
+  .doctorQuote {
+    font-size: 1.2rem;
+  }
+}
+
+.doctorDisplayName {
+  font-size: 1.5rem;
+  color: var(--color-accent-primary);
+  font-family: "Playfair Display", Georgia, serif;
+  margin-bottom: 0.25rem;
+  animation: fadeInUp 0.5s ease 0.4s forwards;
+  opacity: 0;
+}
+
+.doctorDisplaySpecialty {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 0.5s ease 0.5s forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.knowMoreBtn {
+  display: inline-block;
+  padding: 0.875rem 2rem;
+  background-color: var(--color-accent-light);
+  color: var(--color-text-primary);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.5s ease 0.6s forwards;
+  opacity: 0;
+}
+
+.knowMoreBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: left 0.5s ease;
+}
+
+.knowMoreBtn:hover::before {
+  left: 100%;
+}
+
+.knowMoreBtn:hover {
+  background-color: var(--color-accent-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(186, 200, 201, 0.4);
+}
+
+.knowMoreBtn:active {
+  transform: translateY(-1px);
+}
+
+/* Carousel Dots */
+.carouselDots {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--color-accent-light);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.dot::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.dot:hover {
+  background-color: var(--color-accent-primary);
+  transform: scale(1.2);
+}
+
+.dot:hover::before {
+  border-color: var(--color-accent-light);
+}
+
+.dot.dotActive {
+  background-color: var(--color-accent-primary);
+  transform: scale(1.3);
+}
+
+.dot.dotActive::before {
+  border-color: var(--color-accent-primary);
+  animation: dotPulse 2s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Legacy styles kept for compatibility */
+.doctorsGrid {
+  display: none;
+}
+
+/* Doctor Card */
+.doctorCard {
+  background-color: var(--color-white);
+  border-radius: 24px;
+  overflow: visible;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal);
+  opacity: 0;
+  transform: translateY(20px);
+  padding-top: 100px;
+  margin-top: 70px;
+  position: relative;
+}
+
+.teamSection.visible .doctorCard {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.doctorCard:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+}
+
+.doctorImageWrapper {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.doctorBgCircle {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    var(--color-bg-secondary) 0%,
+    var(--color-accent-light) 100%
+  );
+  z-index: 0;
+  top: 10px;
+  transition: transform var(--transition-normal);
+}
+
+.doctorCard:hover .doctorBgCircle {
+  transform: scale(1.05);
+}
+
+.doctorPhoto {
+  position: relative;
+  z-index: 1;
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+  transition: transform var(--transition-normal);
+}
+
+.doctorCard:hover .doctorPhoto {
+  transform: scale(1.05);
+}
+
+.doctorImage {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.doctorPlaceholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    var(--color-accent-light) 0%,
+    var(--color-accent-primary) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-normal);
+}
+
+.doctorCard:hover .doctorPlaceholder {
+  transform: scale(1.1);
+}
+
+.doctorPlaceholder svg {
+  width: 80px;
+  height: 80px;
+  color: var(--color-white);
+  opacity: 0.6;
+}
+
+.doctorOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(74, 74, 74, 0.8), transparent);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 1.5rem;
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.doctorCard:hover .doctorOverlay {
+  opacity: 1;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.socialLink {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg-secondary);
+  border-radius: 50%;
+  color: var(--color-text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.socialLink:hover {
+  background-color: var(--color-accent-primary);
+  color: var(--color-white);
+  transform: scale(1.1);
+}
+
+.socialLink svg {
+  width: 16px;
+  height: 16px;
+}
+
+.doctorInfo {
+  padding: 1rem 1.5rem 1.5rem;
+  text-align: center;
+}
+
+.doctorName {
+  font-size: 1.15rem;
+  color: var(--color-text-primary);
+  margin-bottom: 0.25rem;
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+.doctorSpecialty {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--color-accent-primary);
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+.doctorBio {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
