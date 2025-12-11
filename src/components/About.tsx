@@ -113,14 +113,14 @@ const About: React.FC = () => {
       nameKey: "doctor.2.name",
       specialtyKey: "doctor.2.specialty",
       bioKey: "doctor.2.bio",
-      image: "/team/DraAnaMartinez.png",
+      image: "/team/DrCarlosRamirez.png",
     },
     {
       id: 3,
       nameKey: "doctor.3.name",
       specialtyKey: "doctor.3.specialty",
       bioKey: "doctor.3.bio",
-      image: "/team/DrCarlosRamirez.png",
+      image: "/team/DraAnaMartinez.png",
     },
     {
       id: 4,
