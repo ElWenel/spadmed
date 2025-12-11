@@ -103,9 +103,9 @@ const About: React.FC = () => {
   const doctors = [
     {
       id: 1,
-      nameKey: "doctor.1.name",
-      specialtyKey: "doctor.1.specialty",
-      bioKey: "doctor.1.bio",
+      nameKey: "doctor.2.name",
+      specialtyKey: "doctor.2.specialty",
+      bioKey: "doctor.2.bio",
       image: "/team/DrRobertoSanchez.png",
     },
     {
