@@ -34,7 +34,7 @@ const Header: React.FC = () => {
   ) => {
     e.preventDefault();
     setIsMobileMenuOpen(false);
-    
+
     if (isHomePage) {
       // Si estamos en la página principal, hacer scroll suave
       const element = document.querySelector(href);

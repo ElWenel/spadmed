@@ -321,7 +321,11 @@ p {
 }
 
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
     transform: translateY(0);
   }
   40% {
@@ -333,7 +337,8 @@ p {
 }
 
 @keyframes wiggle {
-  0%, 100% {
+  0%,
+  100% {
     transform: rotate(0deg);
   }
   25% {
@@ -345,7 +350,8 @@ p {
 }
 
 @keyframes glow {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 5px rgba(186, 200, 201, 0.5);
   }
   50% {
@@ -398,7 +404,8 @@ p {
 }
 
 @keyframes heartbeat {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
   }
   14% {
@@ -687,18 +694,31 @@ p {
 }
 
 /* Stagger animation delays for lists */
-.stagger-1 { animation-delay: 0.1s; }
-.stagger-2 { animation-delay: 0.2s; }
-.stagger-3 { animation-delay: 0.3s; }
-.stagger-4 { animation-delay: 0.4s; }
-.stagger-5 { animation-delay: 0.5s; }
-.stagger-6 { animation-delay: 0.6s; }
+.stagger-1 {
+  animation-delay: 0.1s;
+}
+.stagger-2 {
+  animation-delay: 0.2s;
+}
+.stagger-3 {
+  animation-delay: 0.3s;
+}
+.stagger-4 {
+  animation-delay: 0.4s;
+}
+.stagger-5 {
+  animation-delay: 0.5s;
+}
+.stagger-6 {
+  animation-delay: 0.6s;
+}
 
 /* Intersection Observer reveal animations */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: opacity 0.6s ease,
+    transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .reveal.revealed {
@@ -709,7 +729,8 @@ p {
 .reveal-left {
   opacity: 0;
   transform: translateX(-50px);
-  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: opacity 0.6s ease,
+    transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .reveal-left.revealed {
@@ -720,7 +741,8 @@ p {
 .reveal-right {
   opacity: 0;
   transform: translateX(50px);
-  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: opacity 0.6s ease,
+    transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .reveal-right.revealed {
@@ -731,7 +753,8 @@ p {
 .reveal-scale {
   opacity: 0;
   transform: scale(0.9);
-  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: opacity 0.6s ease,
+    transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .reveal-scale.revealed {
@@ -750,7 +773,8 @@ p {
 
 /* Subtle bounce on load */
 @keyframes subtleBounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -760,7 +784,8 @@ p {
 
 /* Gentle shake for attention */
 @keyframes gentleShake {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(0);
   }
   25% {
@@ -788,11 +813,11 @@ p {
   .card:hover {
     transform: none;
   }
-  
+
   .btn:hover {
     transform: none;
   }
-  
+
   .btn:hover::before {
     left: -100%;
   }

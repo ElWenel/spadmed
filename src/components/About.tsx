@@ -81,7 +81,9 @@ const About: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeDoctor, setActiveDoctor] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [slideDirection, setSlideDirection] = useState<'left' | 'right'>('right');
+  const [slideDirection, setSlideDirection] = useState<"left" | "right">(
+    "right"
+  );
   const sectionRef = useRef<HTMLElement>(null);
 
   const valueIcons = [
@@ -111,14 +113,14 @@ const About: React.FC = () => {
       nameKey: "doctor.2.name",
       specialtyKey: "doctor.2.specialty",
       bioKey: "doctor.2.bio",
-      image: "/team/DrRobertoSanchez.png",
+      image: "/team/DraMariaGonzalez.png",
     },
     {
       id: 3,
       nameKey: "doctor.3.name",
       specialtyKey: "doctor.3.specialty",
       bioKey: "doctor.3.bio",
-      image: "/team/DraMariaGonzalez.png",
+      image: "/team/DrRobertoSanchez.png",
     },
     {
       id: 4,
@@ -146,11 +148,11 @@ const About: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  const changeDoctor = (newIndex: number, direction: 'left' | 'right') => {
+  const changeDoctor = (newIndex: number, direction: "left" | "right") => {
     if (isTransitioning) return;
     setSlideDirection(direction);
     setIsTransitioning(true);
-    
+
     setTimeout(() => {
       setActiveDoctor(newIndex);
       setTimeout(() => {
@@ -161,17 +163,17 @@ const About: React.FC = () => {
 
   const nextDoctor = () => {
     const newIndex = (activeDoctor + 1) % doctors.length;
-    changeDoctor(newIndex, 'right');
+    changeDoctor(newIndex, "right");
   };
 
   const prevDoctor = () => {
     const newIndex = (activeDoctor - 1 + doctors.length) % doctors.length;
-    changeDoctor(newIndex, 'left');
+    changeDoctor(newIndex, "left");
   };
 
   const goToDoctor = (index: number) => {
     if (index === activeDoctor) return;
-    const direction = index > activeDoctor ? 'right' : 'left';
+    const direction = index > activeDoctor ? "right" : "left";
     changeDoctor(index, direction);
   };
 
@@ -266,18 +268,33 @@ const About: React.FC = () => {
 
           <div className={styles.doctorCarousel}>
             {/* Navigation Left */}
-            <button 
+            <button
               className={`${styles.carouselBtn} ${styles.carouselBtnLeft}`}
               onClick={prevDoctor}
               aria-label="Previous doctor"
             >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M15 18l-6-6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  d="M15 18l-6-6 6-6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </button>
 
             {/* Doctor Display */}
-            <div className={`${styles.doctorDisplay} ${isTransitioning ? styles.transitioning : ''} ${slideDirection === 'left' ? styles.slideLeft : styles.slideRight}`}>
+            <div
+              className={`${styles.doctorDisplay} ${
+                isTransitioning ? styles.transitioning : ""
+              } ${
+                slideDirection === "left" ? styles.slideLeft : styles.slideRight
+              }`}
+            >
               <div className={styles.doctorImageSection}>
                 <div className={styles.doctorImageFrame}>
                   <div className={styles.imageDecorSquare}></div>
@@ -291,30 +308,50 @@ const About: React.FC = () => {
                 </div>
               </div>
 
-              <div className={styles.doctorContentSection} key={`content-${activeDoctor}`}>
+              <div
+                className={styles.doctorContentSection}
+                key={`content-${activeDoctor}`}
+              >
                 <div className={styles.quoteIcon}>
                   <svg viewBox="0 0 24 24" fill="currentColor">
                     <path d="M11.192 15.757c0-.88-.23-1.618-.69-2.217-.326-.412-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.956.76-3.022.66-1.065 1.515-1.867 2.558-2.403L9.373 5c-.8.396-1.56.898-2.26 1.505-.71.607-1.34 1.305-1.9 2.094s-.98 1.68-1.25 2.69-.346 2.04-.217 3.1c.168 1.4.62 2.52 1.356 3.35.735.84 1.652 1.26 2.748 1.26.965 0 1.766-.29 2.4-.878.628-.576.94-1.365.94-2.368l.002.003zm9.124 0c0-.88-.23-1.618-.69-2.217-.326-.42-.77-.692-1.327-.817-.56-.124-1.074-.13-1.54-.022-.16-.94.09-1.95.75-3.02.66-1.06 1.514-1.86 2.557-2.4L18.49 5c-.8.396-1.555.898-2.26 1.505-.708.607-1.34 1.305-1.894 2.094-.556.79-.97 1.68-1.24 2.69-.273 1-.345 2.04-.217 3.1.165 1.4.615 2.52 1.35 3.35.732.833 1.646 1.25 2.742 1.25.967 0 1.768-.29 2.402-.876.627-.576.942-1.365.942-2.368v.01z" />
                   </svg>
                 </div>
-                <p className={styles.doctorQuote}>{t(doctors[activeDoctor].bioKey)}</p>
-                <h4 className={styles.doctorDisplayName}>{t(doctors[activeDoctor].nameKey)}</h4>
-                <span className={styles.doctorDisplaySpecialty}>{t(doctors[activeDoctor].specialtyKey)}</span>
-                
+                <p className={styles.doctorQuote}>
+                  {t(doctors[activeDoctor].bioKey)}
+                </p>
+                <h4 className={styles.doctorDisplayName}>
+                  {t(doctors[activeDoctor].nameKey)}
+                </h4>
+                <span className={styles.doctorDisplaySpecialty}>
+                  {t(doctors[activeDoctor].specialtyKey)}
+                </span>
+
                 <a href="#about" className={styles.knowMoreBtn}>
-                  {language === "es" ? "Conoce más sobre nosotros" : "Learn more about us"}
+                  {language === "es"
+                    ? "Conoce más sobre nosotros"
+                    : "Learn more about us"}
                 </a>
               </div>
             </div>
 
             {/* Navigation Right */}
-            <button 
+            <button
               className={`${styles.carouselBtn} ${styles.carouselBtnRight}`}
               onClick={nextDoctor}
               aria-label="Next doctor"
             >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round" />
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  d="M9 18l6-6-6-6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </button>
           </div>
@@ -324,7 +361,9 @@ const About: React.FC = () => {
             {doctors.map((_, index) => (
               <button
                 key={index}
-                className={`${styles.dot} ${activeDoctor === index ? styles.dotActive : ""}`}
+                className={`${styles.dot} ${
+                  activeDoctor === index ? styles.dotActive : ""
+                }`}
                 onClick={() => goToDoctor(index)}
                 aria-label={`Go to doctor ${index + 1}`}
               />
