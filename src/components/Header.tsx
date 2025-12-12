@@ -53,37 +53,44 @@ const Header: React.FC = () => {
         className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}
       >
         <div className={styles.container}>
-          <Link href="/" className={styles.logo}>
-            <div className={styles.logoIcon}>
-              <svg
-                viewBox="0 0 40 40"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle
-                  cx="20"
-                  cy="20"
-                  r="18"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                />
-                <path
-                  d="M20 10V30M10 20H30"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-                <circle
-                  cx="20"
-                  cy="20"
-                  r="6"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                />
-              </svg>
-            </div>
-            <span className={styles.logoText}>SpaMed</span>
-          </Link>
+          <div className={styles.logoGroup}>
+            <Link href="/" className={styles.logo}>
+              <div className={styles.logoIcon}>
+                <svg
+                  viewBox="0 0 40 40"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="20"
+                    cy="20"
+                    r="18"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  />
+                  <path
+                    d="M20 10V30M10 20H30"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                  <circle
+                    cx="20"
+                    cy="20"
+                    r="6"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                  />
+                </svg>
+              </div>
+              <span className={styles.logoText}>SpaMed</span>
+            </Link>
+            <span className={styles.watermark}>
+              {language === "es"
+                ? "Desarrollado por CodeKey Solutions"
+                : "Developed by CodeKey Solutions"}
+            </span>
+          </div>
 
           <nav className={styles.nav}>
             {navLinks.map((link) => (

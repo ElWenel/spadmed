@@ -274,10 +274,12 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
   undefined
 );
 
+
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [language, setLanguage] = useState<Language>("es");
+  // Cambiar idioma predeterminado a inglés
+  const [language, setLanguage] = useState<Language>("en");
 
   const t = useCallback(
     (key: string): string => {

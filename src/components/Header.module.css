@@ -37,6 +37,13 @@
   justify-content: space-between;
 }
 
+
+.logoGroup {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -44,6 +51,31 @@
   text-decoration: none;
   color: var(--color-text-primary);
   transition: transform var(--transition-fast);
+}
+.watermark {
+  font-size: 0.85rem;
+  color: #b0b0b0;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  margin-left: 0.5rem;
+  white-space: nowrap;
+  user-select: none;
+  line-height: 1.1;
+}
+
+@media (max-width: 600px) {
+  .watermark {
+    font-size: 0.7rem;
+    margin-left: 0.25rem;
+    max-width: 90px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .logoGroup {
+    gap: 0.5rem;
+  }
 }
 
 .logo:hover {
